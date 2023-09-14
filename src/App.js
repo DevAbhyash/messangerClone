@@ -1,3 +1,10 @@
-export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
-}
+import Body from "./component/Body";
+
+const App = function App() {
+  return (
+    <div>
+      <Body />
+    </div>
+  );
+};
+export default App;
