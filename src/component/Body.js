@@ -2,7 +2,7 @@ import Login from "./Login";
 
 const Body = () => {
   return (
-    <div>
+    <div className="bg-black">
       <Login />
     </div>
   );
