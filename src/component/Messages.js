@@ -5,6 +5,7 @@ import Chat from "./Chat";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebase-config";
 import OldUser from "./OldUser";
+import Button from "./Hooks/Button";
 
 const Messages = () => {
   const [searchedUser, setSearachedUser] = useState("");
@@ -43,19 +44,27 @@ const Messages = () => {
     }
   }, [user, displayUser]);
 
+  function clickedUser(e) {
+    console.log(e);
+
+    setSearachedUser(e);
+  }
+  ///function for getting user if user clicked the friends icon
+
   if (!user) return;
 
   return (
     <div>
       {" "}
-      <p className="font-serif font-bold text-3xl w">
+      <p className="font-serif font-bold text-3xl ">
         {" "}
-        {user.displayName}{" "}
+        <Button className="p-3" url="/mainPage" value="<" /> {user.displayName}{" "}
       </p>{" "}
       <div className="flex my-3 ">
         <input
+          value={searchedUser}
           onChange={handleSearchChange}
-          className="w-full bg-gray-200 h-16 rounded-lg p-3"
+          className="w-full bg-gray-200 h-16 rounded-lg p-3 font-serif text-xl "
           type="search"
           placeholder="Please Search User With Display Name"
         />
@@ -68,8 +77,12 @@ const Messages = () => {
           Search{" "}
         </button>{" "}
       </div>{" "}
-      <div>
-        <OldUser receiver={displayUser.userID} sender={user.uid} />{" "}
+      <div className="w-full h-full">
+        <OldUser
+          receiver={displayUser.userID}
+          sender={user.uid}
+          getUser={clickedUser}
+        />{" "}
       </div>{" "}
       <div>
         <Chat

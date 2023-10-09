@@ -25,6 +25,7 @@ const Chat = ({ photo, name, combinedId, receiver }) => {
     ///function for opening chat screen
     dispatch(setChatScreen());
   };
+
   function handleChatCloseButton() {
     //function for closing chat screen
     dispatch(setChatScreen());
@@ -85,26 +86,27 @@ const Chat = ({ photo, name, combinedId, receiver }) => {
             onClick={handleChatCloseButton}
             className="absolute right-5 bg-red-500 h-16 w-16 rounded-full "
           >
-            Close Chat
-          </button>
-          <div className="absolute left-7 my-10 border-4 border-green-900 py-10 px-5 w-2/3 mt-32 h-2/3 overflow-scroll">
+            Close Chat{" "}
+          </button>{" "}
+          <div className="bg-chatTheme bg-cover bg-center  absolute left-7 my-10 border-4 border-green-900 py-10 px-5 w-full mt-32 h-5/6 overflow-scroll flex flex-col  justify-start">
+            {" "}
             {allMessage.map((m) => {
               return (
                 <p
                   className={
                     m.userId === currentUser.uid
-                      ? "text-white bg-blue-500 my-4 mx-auto  p-5 rounded-3xl w-1/3 overflow-scroll"
-                      : "text-white bg-red-500 my-4  p-5 rounded-3xl w-1/3 overflow-scroll"
+                      ? "text-white bg-blue-500 my-4 mx-6   p-5 rounded-3xl   ml-auto w-auto "
+                      : "text-white bg-red-500 my-4  p-5 rounded-3xl w-1/3 "
                   }
                 >
                   <span>
-                    <img className="h-14 rounded-full" src={m.photo} />
+                    <img className="h-14 rounded-full" src={m.photo} />{" "}
                   </span>{" "}
-                  {m.message}
+                  {m.message}{" "}
                 </p>
               );
-            })}
-          </div>
+            })}{" "}
+          </div>{" "}
           <div className="fixed bottom-0 bg-gray-500 w-full  text-white  ">
             <input
               onChange={(e) => setInputMesssage(e.target.value)}
@@ -116,13 +118,13 @@ const Chat = ({ photo, name, combinedId, receiver }) => {
               onClick={handleSendMessage}
               className="h-16 w-24 text-black  mx-10 rounded-3xl bg-white p-4"
             >
-              Send Messsage
-            </button>
-          </div>
+              Send Messsage{" "}
+            </button>{" "}
+          </div>{" "}
         </div>
       ) : (
         ""
-      )}
+      )}{" "}
     </div>
   );
 };

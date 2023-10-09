@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebase-config";
 
-const OldUSer = () => {
+const OldUSer = ({ getUser }) => {
   const [users, setUsers] = useState([]);
 
   const getUserData = async function () {
@@ -22,13 +22,16 @@ const OldUSer = () => {
 
   if (!users) return;
   return (
-    <div>
-      {" "}
+    <div className="flex  flex-row shadow-2xl ">
+      <p className="p-5 font-bold text-xl animate-pulse "> All Friends: </p>{" "}
       {users.map((u) => {
         return (
-          <div className="flex  flex-row ">
-            {" "}
-            <img className="h-20 rounded-full" src={u.picture} />{" "}
+          <div className="m-2">
+            <img
+              onClick={() => getUser(u.displayName)}
+              className="h-20 rounded-full"
+              src={u.picture}
+            />{" "}
           </div>
         );
       })}{" "}
