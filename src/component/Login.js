@@ -93,14 +93,14 @@ const Login = () => {
   }
 
   return (
-    <div className=" bg-gray-200 h-screen shadow-inner  ">
-      <div className="flex  flex-col  items-center justify-center shadow-inner  ">
+    <div className=" bg-gray-200  h-screen      ">
+      <div className="flex  flex-col  items-center justify-center h-min        ">
         <img className="w-20  py-9 shadow-inner" src={LOGO} alt="logo/>" />
         <h1 className=" font-bold text-3xl py-2"> Please Login Now! </h1>{" "}
         {signUp && (
           <input
             ref={nameInput}
-            className="my-3 h-16  rounded-lg w-1/4  px-5 shadow-inner "
+            className="my-3 h-16   rounded-lg w-3/4  px-5 shadow-inner "
             type="text"
             placeholder="Enter Your Full Name"
           />
